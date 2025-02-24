@@ -462,3 +462,195 @@ Workshop4
 # book1.return_book()
 # book1.borrow_book()
 # book1.borrow_book()
+
+
+# ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+'''
+
+Workshop 5
+
+'''
+
+# Question 1: using the PiggyBank class to demonstrate it on
+# encapsulation.
+# Scenario: create a class PiggyBank to represent a simple piggy bank. The
+# class should have the following features:
+# 1. A private attribute balance to store the current amount of money in
+# the piggy bank, initialized to 0.
+# 2. A method add_money(amount) that allows you to add a positive
+# amount to the piggy bank. If the amount is negative or zero, the
+# money should not be added.
+# 3. A method check_balance() that returns the current balance in the
+# piggy bank.
+# Write the Python code to implement the class PiggyBank, and demonstrate
+# the functionality by adding money to the piggy bank and then checking the
+# balance.
+# Expected Output:
+# 100
+
+# class PiggyBank:
+#     def __init__(self):
+#         self.__balance = 0
+
+#     def add_money(self, amount):
+#         if amount > 0:
+#             self.__balance += amount
+#         else:
+#             print("Please enter amount bigger than 0.")
+
+#     def check_balance(self):
+#         return self.__balance
+# x = int(input("Enter the amount of money to add: "))
+# piggy_bank = PiggyBank()
+# piggy_bank.add_money(x)
+# print(f"{piggy_bank.check_balance()}$")
+
+
+# Question 2:create a class Car to represent a car. The class should have the
+# following features:
+# 1. A private attribute __make to store the car's make (e.g., Toyota,
+# Honda).
+# 2. A method get_make() to retrieve the car's make.
+# 3. A method set_make(new_make) to set a new make for the car.
+# Write the Python code to implement the class Car, and demonstrate how to
+# get and set the car's make.
+# Expected Output:
+# Toyota
+# Honda
+
+# class Car:
+#     def __init__(self, make):
+#         self.__make = make
+#     def get_make(self):
+#         return self.__make
+#     def set_make(self, new_make):
+#         self.__make = new_make
+
+# my_car = Car("Toyota")
+# print(my_car.get_make())
+# my_car.set_make("Honda")
+# print(my_car.get_make())
+
+
+# Question 3: Demonstrate with an example of Vehicle and Car classes.
+# Scenario: You are asked to create two classes: Vehicle and Car. The
+# Vehicle class should have the following features:
+# 1. An attribute brand to store the vehicle's brand (e.g., Toyota).
+# 2. A method drive() to print that the vehicle is moving.
+# The Car class should inherit from the Vehicle class and have the following
+# features:
+# 1. An additional attribute model to store the car's model (e.g., Corolla).
+# 2. A method honk() to print a honking sound.
+# Write the Python code to implement the Vehicle and Car classes, and
+# demonstrate how a Car object can inherit the properties and methods from
+# the Vehicle class, along with its own methods.
+# Expected Output:
+# The vehicle is moving.
+# Beep! Beep!
+
+# class Vehicle:
+#     def __init__(self, brand):
+#         self.brand = brand
+#     def drive(self):
+#         print("The vehicle is moving.")
+# class Car(Vehicle):
+#     def __init__(self, brand, model):
+#         super().__init__(brand)
+#         self.model = model
+#     def honk(self):
+#         print("Beep! Beep!")
+# my_car = Car("Toyota", "Corolla")
+# my_car.drive()
+# my_car.honk()
+
+
+# Question 4: Provide an example on overriding with an Animal and its
+# subclasses.
+# Scenario: You are asked to create an Animal class and its subclass Dog.
+# The Animal class should have the following method:
+# 1. A method sound() that prints "Some generic animal sound".
+# The Dog class should inherit from the Animal class and override the
+# sound() method to print "Woof!".
+# Write the Python code to implement the Animal and Dog classes, and
+# demonstrate how the Dog class overrides the sound() method of the Animal
+# class.
+# Expected Output:
+# Woof!
+
+# class Animal:
+#     def sound(self):
+#         print("Some generic animal sound")
+# class Dog(Animal):
+#     def sound(self):
+#         print("Woof!")
+# dog = Dog()
+# dog.sound()
+
+
+# Question 5: Provide an example on polymorphism with an Animal
+# class and its subclasses.
+# Scenario: create a polymorphic example with an Animal class and its
+# subclasses Dog and Cat. The Animal class should have the following
+# method:
+# 1. A method sound() that is intended to be overridden in subclasses.
+# The Dog and Cat classes should inherit from the Animal class and override
+# the sound() method:
+# • The Dog class should return "Woof!" when sound() is called.
+# • The Cat class should return "Meow!" when sound() is called.
+# Write the Python code to implement the Animal, Dog, and Cat classes, and
+# demonstrate polymorphism by storing instances of Dog and Cat in a list and
+# calling their sound() methods
+
+# class Animal:
+#     def sound(self):
+#         pass
+# class Dog(Animal):
+#     def sound(self):
+#         return "Woof!"
+# class Cat(Animal):
+#     def sound(self):
+#         return "Meow!"
+# dog = Dog()
+# cat = Cat()
+# animals = [dog, cat]
+# for animal in animals:
+#     print(animal.sound())
+
+
+# Question 6:demonstrate abstraction by creating an Animal class with an
+# abstract method make_sound(). The Animal class should have the
+# following features:
+# 1. An attribute name to store the name of the animal.
+# 2. An abstract method make_sound() that does not provide a concrete
+# implementation in the Animal class, but must be implemented by its
+# subclasses.
+# The subclasses Dog and Cat should inherit from the Animal class and
+# implement the make_sound() method:
+# • The Dog class should print "Woof!" when make_sound() is called.
+# • The Cat class should print "Meow!" when make_sound() is called.
+# Write the Python code to implement the Animal, Dog, and Cat classes, and
+# demonstrate abstraction by calling make_sound() on objects of Dog and Cat
+# classes.
+# Expected Output:
+# Woof!
+# Meow!
+
+
+# from abc import ABC, abstractmethod
+# class Animal(ABC):
+#     def __init__(self, name):
+#         self.name = name
+#     @abstractmethod
+#     def make_sound(self):
+#         pass
+# class Dog(Animal):
+#     def make_sound(self):
+#         print("Woof!")
+# class Cat(Animal):
+#     def make_sound(self):
+#         print("Meow!")
+# dog = Dog("Dog")
+# cat = Cat("Cat")
+# dog.make_sound()
+# cat.make_sound()
